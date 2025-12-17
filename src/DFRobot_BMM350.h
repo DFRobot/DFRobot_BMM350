@@ -46,7 +46,7 @@ void bmm350DelayUs(uint32_t period);
 
 class DFRobot_BMM350{
 public:
-  DFRobot_BMM350(pBmm350ReadFptr_t bmm350ReadReg, pBmm350WriteFptr_t bmm350WriteReg, pBmm350DelayUsFptr_t bmm350DelayUs, eBmm350Interface_t interface);
+  DFRobot_BMM350(pBmm350ReadFptr_t bmm350ReadReg, pBmm350WriteFptr_t bmm350WriteReg, pBmm350DelayUsFptr_t bmm350DelayUs, uint8_t pBmm350Addr);
 
   ~DFRobot_BMM350();
 

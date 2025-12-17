@@ -31,17 +31,10 @@ void bmm350DelayUs(uint32_t period, void *intfPtr)
     }
 }
 
-DFRobot_BMM350::DFRobot_BMM350(pBmm350ReadFptr_t bmm350ReadReg, pBmm350WriteFptr_t bmm350WriteReg, pBmm350DelayUsFptr_t bmm350DelayUs, eBmm350Interface_t interface)
+DFRobot_BMM350::DFRobot_BMM350(pBmm350ReadFptr_t bmm350ReadReg, pBmm350WriteFptr_t bmm350WriteReg, pBmm350DelayUsFptr_t bmm350DelayUs, uint8_t pBmm350Addr)
 {
-    switch (interface)
-    {
-    case eBmm350InterfaceI2C:
-        devAddr = BMM350_I2C_ADSEL_SET_LOW;
-        bmm350Sensor.intfPtr = &devAddr;
-        break;
-    case eBmm350InterfaceI3C:
-        break;
-    }
+    devAddr = pBmm350Addr;
+    bmm350Sensor.intfPtr = &devAddr;
     bmm350Sensor.read = bmm350ReadReg;
     bmm350Sensor.write = bmm350WriteReg;
     bmm350Sensor.delayUs = bmm350DelayUs;
@@ -453,7 +446,7 @@ static int8_t bmm350I2cWriteData(uint8_t Reg, const uint8_t *Data, uint32_t len,
     return 0;
 }
 
-DFRobot_BMM350_I2C::DFRobot_BMM350_I2C(TwoWire *pWire, uint8_t addr) : DFRobot_BMM350(bmm350I2cReadData, bmm350I2cWriteData, bmm350DelayUs, eBmm350InterfaceI2C)
+DFRobot_BMM350_I2C::DFRobot_BMM350_I2C(TwoWire *pWire, uint8_t addr) : DFRobot_BMM350(bmm350I2cReadData, bmm350I2cWriteData, bmm350DelayUs, addr)
 {
     _pWire = pWire;
     bmm350I2CAddr = addr;
