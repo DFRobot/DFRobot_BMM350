@@ -1,4 +1,4 @@
-DFRobot_BMP350
+DFRobot_BMM350
 ===========================
 
 * [English Version](./README.md)
