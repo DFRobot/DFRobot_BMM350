@@ -57,6 +57,15 @@ public:
   void softReset(void);
 
   /**
+   * @fn magneticReset
+   * @brief Perform a magnetic reset (bit reset followed by flux guide reset) and wait for it to complete.
+   * @n It is needed after the sensor has been exposed to a strong magnetic field shock. Other settings are kept;
+   * @n if the sensor is in normal mode, it returns to normal mode afterwards.
+   * @return true on success, false on failure
+   */
+  bool magneticReset(void);
+
+  /**
    * @fn setOperationMode
    * @brief Set sensor operation mode
    * @param powermode
