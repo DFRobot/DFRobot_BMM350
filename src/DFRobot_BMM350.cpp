@@ -60,6 +60,11 @@ void DFRobot_BMM350::softReset(void)
     bmm350SetPowerMode(eBmm350SuspendMode, &bmm350Sensor);
 }
 
+bool DFRobot_BMM350::magneticReset(void)
+{
+    return bmm350_magnetic_reset_and_wait(&bmm350Sensor) == BMM350_OK;
+}
+
 void DFRobot_BMM350::setOperationMode(enum eBmm350PowerModes_t powermode)
 {
     bmm350SetPowerMode(powermode, &bmm350Sensor);

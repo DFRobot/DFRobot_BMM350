@@ -44,6 +44,14 @@ SKU: SEN0619
   void softReset(void);
 
   /**
+   * @fn magneticReset
+   * @brief 执行磁复位（先位复位，再磁通导向复位）并等待完成
+   * @n 传感器受到强磁场冲击后需要执行。其他设置保持不变。
+   * @return 成功返回 true，失败返回 false
+   */
+  bool magneticReset(void);
+
+  /**
    * @fn setOperationMode
    * @brief 设置传感器的执行模式
    * @param opMode mode

@@ -8,6 +8,7 @@
 
 begin	KEYWORD2
 softReset	KEYWORD2
+magneticReset	KEYWORD2
 selfTest	KEYWORD2
 setOperationMode	KEYWORD2
 getOperationMode	KEYWORD2
